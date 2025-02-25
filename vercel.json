@@ -1,18 +1,6 @@
 {
   "version": 2,
   "name": "pop-hair-salon",
-  "builds": [
-    {
-      "src": "index.html",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
-    }
-  ],
   "cleanUrls": true,
   "trailingSlash": false
 }
