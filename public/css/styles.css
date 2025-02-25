@@ -4,6 +4,11 @@
     --medium-gray: #666666;
     --light-gray: #DDDDDD;
     --white: #FFFFFF;
+    --baby-blue: #89CFF0;
+    --baby-blue-dark: #5DA9D6;
+    --baby-blue-light: #B1E0F8;
+    --rose-gold: #B76E79;
+    --rose-gold-dark: #9E5662;
 }
 html, body {
     width: 100%;
@@ -694,6 +699,182 @@ footer a:hover {
     background-color: var(--dark-gray);
     transform: translateY(-5px);
     box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+
+/* Color mode toggle button */
+.color-toggle {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: var(--black);
+    color: var(--white);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    font-size: 1.2rem;
+}
+.color-toggle:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+
+/* Baby blue color mode */
+body.baby-blue-mode .book-now-btn,
+body.baby-blue-mode .btn-primary,
+body.baby-blue-mode .scroll-top,
+body.baby-blue-mode .color-toggle,
+body.baby-blue-mode footer {
+    background-color: var(--baby-blue);
+}
+
+body.baby-blue-mode .book-now-btn:hover,
+body.baby-blue-mode .btn-primary:hover,
+body.baby-blue-mode .scroll-top:hover,
+body.baby-blue-mode .color-toggle:hover {
+    background-color: var(--baby-blue-dark);
+}
+
+body.baby-blue-mode .navbar,
+body.baby-blue-mode #header {
+    background-color: rgba(137, 207, 240, 0.9); /* baby-blue with transparency */
+}
+
+body.baby-blue-mode .navbar.scrolled {
+    background-color: var(--baby-blue);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+body.baby-blue-mode .info-card {
+    border-top: 4px solid var(--baby-blue);
+    background-color: white; /* Keep white background for contrast */
+}
+
+body.baby-blue-mode .info-icon,
+body.baby-blue-mode .info-title,
+body.baby-blue-mode .hours-time,
+body.baby-blue-mode .highlight,
+body.baby-blue-mode .section-title,
+body.baby-blue-mode #hero h1,
+body.baby-blue-mode .navbar-brand,
+body.baby-blue-mode #biography h2 {
+    color: var(--baby-blue-dark); /* Darker shade for better visibility */
+}
+
+body.baby-blue-mode .highlight {
+    border-bottom: 2px dotted var(--baby-blue);
+}
+
+/* Fix logo visibility in baby blue mode */
+body.baby-blue-mode .logo-header {
+    filter: invert(1); /* Just invert the header logo */
+}
+
+/* Ensure text in cards is visible */
+body.baby-blue-mode .info-content p,
+body.baby-blue-mode .info-content li,
+body.baby-blue-mode .info-content span:not(.hours-time):not(.highlight) {
+    color: #444; /* Keep dark text on light backgrounds */
+}
+
+/* Keep the hero logo as is in blue mode - no filter applied */
+
+/* Footer text color in blue mode */
+body.baby-blue-mode footer a {
+    color: white;
+}
+
+body.baby-blue-mode footer a:hover {
+    color: #eee;
+    text-decoration: underline;
+}
+
+/* Blue background with rose gold accents mode */
+body.rose-gold-mode {
+    background-color: var(--baby-blue-light);
+}
+
+body.rose-gold-mode .book-now-btn,
+body.rose-gold-mode .btn-primary,
+body.rose-gold-mode .scroll-top,
+body.rose-gold-mode .color-toggle,
+body.rose-gold-mode footer {
+    background-color: var(--rose-gold);
+    color: white;
+}
+
+body.rose-gold-mode .book-now-btn:hover,
+body.rose-gold-mode .btn-primary:hover,
+body.rose-gold-mode .scroll-top:hover,
+body.rose-gold-mode .color-toggle:hover {
+    background-color: var(--rose-gold-dark);
+    color: white;
+}
+
+body.rose-gold-mode .navbar,
+body.rose-gold-mode #header {
+    background-color: rgba(183, 110, 121, 0.9); /* rose-gold with transparency */
+}
+
+body.rose-gold-mode .navbar.scrolled {
+    background-color: var(--rose-gold);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+body.rose-gold-mode .info-card {
+    border-top: 4px solid var(--rose-gold);
+    background-color: white; /* White background for contrast */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+body.rose-gold-mode .info-icon,
+body.rose-gold-mode .info-title,
+body.rose-gold-mode .hours-time,
+body.rose-gold-mode .highlight,
+body.rose-gold-mode .section-title,
+body.rose-gold-mode #hero h1,
+body.rose-gold-mode .navbar-brand,
+body.rose-gold-mode #biography h2 {
+    color: var(--rose-gold);
+}
+
+body.rose-gold-mode .highlight {
+    border-bottom: 2px dotted var(--rose-gold);
+}
+
+body.rose-gold-mode .logo-header {
+    filter: brightness(0) invert(0.2) sepia(1) saturate(2) hue-rotate(295deg); /* Rose gold filter */
+}
+
+body.rose-gold-mode #hero::before {
+    background: var(--baby-blue-light); /* Match the background */
+}
+
+body.rose-gold-mode .section-with-pattern {
+    background-color: var(--baby-blue-light);
+}
+
+/* Fix contrast for text on blue background */
+body.rose-gold-mode p,
+body.rose-gold-mode .bio-content p,
+body.rose-gold-mode #services .col-lg-5 ul li span:not(.hours-time) {
+    color: var(--dark-gray);
+}
+
+/* Footer text color in rose gold mode */
+body.rose-gold-mode footer a {
+    color: white;
+}
+
+body.rose-gold-mode footer a:hover {
+    color: #eee;
+    text-decoration: underline;
 }
 
 /* Footer map styling */
