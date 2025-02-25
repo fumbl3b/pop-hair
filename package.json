@@ -1,0 +1,19 @@
+{
+  "name": "pop-hair-salon",
+  "version": "1.0.0",
+  "description": "Pop Hair Salon website",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve"
+  },
+  "keywords": [
+    "hair salon",
+    "website",
+    "static"
+  ],
+  "author": "Pop Hair Salon",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "serve": "^14.2.1"
+  }
+}
