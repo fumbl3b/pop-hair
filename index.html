@@ -3,199 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pop Hair Salon</title>
+    <title>Pop Hair Salon | Chicago, IL</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- AOS for animations -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
     <!-- Lightbox for gallery images -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" />
-    <style>
-        :root {
-            --baby-blue: #89CFF0;
-            --rose-gold: #B76E79;
-            --orange: #FFA500;
-        }
-        body {
-            padding-top: 56px; /* Offset for fixed header */
-            font-family: 'Poppins', sans-serif; /* Pop-art inspired, bold font */
-            background-color: white;
-        }
-        #header {
-            background-color: white;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        .navbar {
-            background-color: white;
-        }
-        .navbar-brand {
-            color: var(--orange);
-            font-size: 2rem;
-            font-weight: bold;
-            font-family: 'Impact', sans-serif; /* Bold, pop-art font for branding */
-        }
-        .nav-link {
-            color: #333;
-            font-size: 1.2rem;
-            font-family: 'Poppins', sans-serif;
-        }
-        .nav-link:hover {
-            color: var(--rose-gold);
-        }
-        #hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('hero-bg.jpg') no-repeat center center/cover;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-        #hero h1 {
-            font-size: 4.5rem; /* Larger, bold pop-art headline */
-            font-family: 'Impact', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        #hero p {
-            font-size: 1.8rem; /* Bigger, clean font for subtext */
-            font-family: 'Poppins', sans-serif;
-        }
-        .btn-primary {
-            background-color: var(--rose-gold);
-            border-color: var(--rose-gold);
-            font-size: 1.2rem;
-            padding: 12px 24px;
-            font-family: 'Poppins', sans-serif;
-        }
-        .btn-primary:hover {
-            background-color: #a65e6a; /* Darkened rose gold */
-            border-color: #a65e6a;
-        }
-        #services-pricing, #biography, #gallery, #contact, #map {
-            background-color: white;
-            color: #333;
-        }
-        .section-title {
-            font-size: 3rem;
-            font-family: 'Impact', sans-serif;
-            color: var(--orange);
-            text-align: center;
-            margin-bottom: 2rem;
-            text-transform: uppercase;
-        }
-        .service-item, .bio-text, .gallery-item, .contact-info, .map-container {
-            font-size: 1.2rem;
-            font-family: 'Poppins', sans-serif;
-        }
-        #services-pricing .col-md-4 h3 {
-            font-size: 2rem;
-            font-family: 'Impact', sans-serif;
-            color: var(--baby-blue);
-        }
-        #biography img {
-            border: 5px solid var(--rose-gold);
-            border-radius: 10px;
-        }
-        #biography h2 {
-            font-size: 3rem;
-            font-family: 'Impact', sans-serif;
-            color: var(--orange);
-        }
-        #gallery img {
-            border: 5px solid var(--rose-gold);
-            border-radius: 10px;
-        }
-        #contact h3, #map h2 {
-            font-size: 2.5rem;
-            font-family: 'Impact', sans-serif;
-            color: var(--baby-blue);
-        }
-        footer {
-            background-color: var(--baby-blue);
-            color: white;
-            font-size: 1rem;
-            font-family: 'Poppins', sans-serif;
-        }
-        footer a {
-            color: var(--orange);
-        }
-        footer a:hover {
-            color: var(--rose-gold);
-        }
-        @media (max-width: 768px) {
-            #hero {
-                height: 60vh;
-            }
-            #hero h1 {
-                font-size: 3rem;
-            }
-            #hero p {
-                font-size: 1.5rem;
-            }
-            .section-title {
-                font-size: 2.5rem;
-            }
-            .navbar-brand {
-                font-size: 1.5rem;
-            }
-            .nav-link {
-                font-size: 1rem;
-            }
-        }
-    </style>
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="public/css/styles.css">
     <!-- Load Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Impact&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Open+Sans:wght@800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
     <!-- Header with Navigation -->
     <header id="header" class="fixed-top">
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="#">Pop Hair Salon</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#services-pricing">Services & Pricing</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#biography">Biography</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                </ul>
+        <nav class="navbar navbar-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="public/images/pophairlogo.png" alt="Pop Hair Salon" class="logo-header">
+                </a>
+                <a href="https://pophairsalon.salonmonster.com" class="book-now-btn" target="_blank">
+                    <span class="book-now-icon"><i class="fas fa-calendar-check"></i></span>
+                    <span class="book-now-text">Book Now</span>
+                </a>
             </div>
         </nav>
     </header>
 
     <!-- Hero Section -->
     <section id="hero" class="d-flex align-items-center justify-content-center text-center">
-        <div class="container">
-            <h1 class="display-4">Pop Hair Salon</h1>
-            <p class="lead">Your Style, Our Passion</p>
-            <a href="#contact" class="btn btn-primary btn-lg">Book Now</a>
+        <!-- Hair Image Collage -->
+        <div class="hair-collage">
+            <img src="public/images/hair1.png" alt="Hair Style 1" class="collage-image collage-image-1">
+            <img src="public/images/hair2.png" alt="Hair Style 2" class="collage-image collage-image-2">
+            <img src="public/images/hair3.png" alt="Hair Style 3" class="collage-image collage-image-3">
+            <img src="public/images/hero.png" alt="Hero Image" class="collage-image collage-image-4">
+            <img src="public/images/hair4.png" alt="Hair Style 4" class="collage-image collage-image-5">
+            <img src="public/images/hero2.png" alt="Hero Image 2" class="collage-image collage-image-6">
+        </div>
+        <div class="container hero-container">
+            <div class="hero-content">
+                <img src="public/images/pophair.png" alt="Pop Hair Logo" class="img-fluid hero-logo">
+                <div class="hero-button">
+                    <a href="https://pophairsalon.salonmonster.com" class="btn btn-primary btn-lg" target="_blank">
+                        <i class="fas fa-calendar-check mr-2"></i> Book Online
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Services & Pricing Section -->
-    <section id="services-pricing" class="py-5">
+    <!-- Services Section -->
+    <section id="services" class="py-5 section-with-pattern">
         <div class="container">
-            <h2 class="section-title">Services & Pricing</h2>
+            <h2 class="section-title">Services</h2>
+            <div class="row justify-content-center">
+                <!-- Haircuts Card -->
+                <div class="col-lg-5 mb-4" data-aos="fade-up">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-cut"></i>
+                        </div>
+                        <h3 class="info-title">Haircuts</h3>
+                        <div class="info-content">
+                            <ul class="hours-list">
+                                <li>
+                                    <span>Men's</span>
+                                    <span class="hours-time">$30+</span>
+                                </li>
+                                <li>
+                                    <span>Women's Short</span>
+                                    <span class="hours-time">$45+</span>
+                                </li>
+                                <li>
+                                    <span>Women's Medium</span>
+                                    <span class="hours-time">$55+</span>
+                                </li>
+                                <li>
+                                    <span>Women's Long</span>
+                                    <span class="hours-time">$65+</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- Color Services Card -->
+                <div class="col-lg-5" data-aos="fade-up" data-aos-delay="100">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h3 class="info-title">Color Services</h3>
+                        <div class="info-content">
+                            <ul class="hours-list">
+                                <li>
+                                    <span>Single Process</span>
+                                    <span class="hours-time">$75+</span>
+                                </li>
+                                <li>
+                                    <span>Partial Highlights</span>
+                                    <span class="hours-time">$95+</span>
+                                </li>
+                                <li>
+                                    <span>Full Highlights</span>
+                                    <span class="hours-time">$135+</span>
+                                </li>
+                                <li>
+                                    <span>Single Process with Highlights</span>
+                                    <span class="hours-time">$165+</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-5">
+        <div class="container">
+            <div class="row align-items-center" data-aos="fade-up">
+                <div class="col-md-7 d-flex flex-column justify-content-center order-md-1 order-2">
+                    <div class="bio-content">
+                        <h2 class="section-title">PRODUCTS</h2>
+                        <p data-aos="fade-up">Lorem ipsum odor amet, consectetuer adipiscing elit. Augue neque cursus vehicula est pulvinar inceptos conubia sociosqu. Consequat vitae pulvinar erat semper lacus tincidunt magna. Rutrum cubilia quisque ex pretium mi, orci ad mauris.</p>
+
+                        <p data-aos="fade-up" data-aos-delay="100">Mollis faucibus euismod habitasse interdum quisque. Convallis donec tellus ultrices pretium; ante amet orci. Lectus laoreet vulputate justo praesent eu est tempus urna. Per dignissim neque consequat fermentum scelerisque.</p>
+                    </div>
+                </div>
+                <div class="col-md-5 text-center order-md-2 order-1">
+                    <div class="products-image-wrapper">
+                        <div class="product-images-overlap">
+                            <img src="public/images/product1.jpeg" alt="Product 1" class="product-image product-image-1">
+                            <img src="public/images/product2.jpg" alt="Product 2" class="product-image product-image-2">
+                            <img src="public/images/product3.jpg" alt="Product 3" class="product-image product-image-3">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section (Optional Enhancement) -->
+    <section id="gallery" class="py-5 section-with-pattern">
+        <div class="container">
+            <h2 class="section-title">Work</h2>
             <div class="row">
                 <div class="col-md-4" data-aos="fade-up">
-                    <h3>Haircut</h3>
-                    <p>Description of haircut service.</p>
-                    <p><strong>Price: $50</strong></p>
+                    <img src="public/images/style1.jpg" alt="Hair Style 1" class="img-fluid mb-3 gallery-image">
                 </div>
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-                    <h3>Coloring</h3>
-                    <p>Description of coloring service.</p>
-                    <p><strong>Price: $80</strong></p>
+                    <img src="public/images/style2.jpg" alt="Hair Style 2" class="img-fluid mb-3 gallery-image">
                 </div>
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-                    <h3>Styling</h3>
-                    <p>Description of styling service.</p>
-                    <p><strong>Price: $60</strong></p>
+                    <img src="public/images/style3.jpg" alt="Hair Style 3" class="img-fluid mb-3 gallery-image">
                 </div>
-                <!-- Add more services as needed -->
+                <!-- Add more images as needed -->
             </div>
         </div>
     </section>
@@ -203,85 +170,133 @@
     <!-- Biography Section -->
     <section id="biography" class="py-5">
         <div class="container">
-            <div class="row" data-aos="fade-up">
-                <div class="col-md-6">
-                    <img src="owner.jpg" alt="Salon Owner" class="img-fluid rounded">
+            <div class="row align-items-center" data-aos="fade-up">
+                <div class="col-md-5 text-center">
+                    <div class="bio-image-wrapper">
+                        <img src="public/images/salon.jpg" alt="Salon Owner" class="img-fluid rounded-circle bio-image">
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    <h2>About Us</h2>
-                    <p>Biography text goes here. Tell the story of the salon, the owner, or the stylists.</p>
+                <div class="col-md-7 d-flex flex-column justify-content-center">
+                    <div class="bio-content">
+                        <h2 class="section-title">ABOUT</h2>
+                        <p data-aos="fade-up">Lorem ipsum odor amet, consectetuer adipiscing elit. Augue neque cursus vehicula est pulvinar inceptos conubia sociosqu. Consequat vitae pulvinar erat semper lacus tincidunt magna. Rutrum cubilia quisque ex pretium mi, orci ad mauris. Nisi risus pulvinar est primis conubia nascetur fusce nam. Facilisis metus nisl luctus, commodo consequat fringilla. Commodo pretium magna tempor vehicula quis aenean urna.</p>
+
+                        <p data-aos="fade-up" data-aos-delay="100">Mollis faucibus euismod habitasse interdum quisque. Convallis donec tellus ultrices pretium; ante amet orci. Lectus laoreet vulputate justo praesent eu est tempus urna. Per dignissim neque consequat fermentum scelerisque. Risus tempus leo nisl ante dictumst tincidunt euismod suscipit vitae. Magnis massa taciti maecenas non lacus tempus efficitur. Maecenas habitant lacus senectus porttitor facilisi duis ante erat. Netus justo habitant venenatis nibh non platea turpis rhoncus.</p>
+                        <div class="mt-4">
+                            <a href="https://www.instagram.com/pophairkenny/" class="btn btn-primary">
+                                <i class="fab fa-instagram mr-2"></i> Follow us on Instagram
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Gallery Section (Optional Enhancement) -->
-    <section id="gallery" class="py-5">
+    <!-- Hours & Policies Section -->
+    <section id="policy" class="py-5 section-with-pattern">
         <div class="container">
-            <h2 class="section-title">Our Work</h2>
-            <div class="row">
-                <div class="col-md-4" data-aos="fade-up">
-                    <a href="work1.jpg" data-lightbox="gallery"><img src="work1.jpg" alt="Hair Style 1" class="img-fluid mb-3"></a>
+            <h2 class="section-title">Hours & Policies</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-5 mb-4" data-aos="fade-up">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="far fa-clock"></i>
+                        </div>
+                        <h3 class="info-title">Salon Hours</h3>
+                        <div class="info-content">
+                            <ul class="hours-list">
+                                <li>
+                                    <span>Monday</span>
+                                    <span class="hours-time">9am - 5pm</span>
+                                </li>
+                                <li>
+                                    <span>Tuesday</span>
+                                    <span class="hours-time">9am - 5pm</span>
+                                </li>
+                                <li>
+                                    <span>Wednesday</span>
+                                    <span class="hours-time">9am - 5pm</span>
+                                </li>
+                                <li>
+                                    <span>Thursday</span>
+                                    <span class="hours-time">9am - 5pm</span>
+                                </li>
+                                <li>
+                                    <span>Friday</span>
+                                    <span class="hours-time">9am - 5pm</span>
+                                </li>
+                                <li>
+                                    <span>Saturday</span>
+                                    <span class="hours-time">10am - 4pm</span>
+                                </li>
+                                <li>
+                                    <span>Sunday</span>
+                                    <span class="hours-time">Closed</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-                    <a href="work2.jpg" data-lightbox="gallery"><img src="work2.jpg" alt="Hair Style 2" class="img-fluid mb-3"></a>
+                <div class="col-lg-5" data-aos="fade-up" data-aos-delay="100">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-exclamation-circle"></i>
+                        </div>
+                        <h3 class="info-title">Cancellation Policy</h3>
+                        <div class="info-content">
+                            <p>If you need to cancel, please give us <span class="highlight">24 hours notice</span>.</p>
+                            <p>Appointments cancelled with less than 24 hours notice will be charged the <span class="highlight">full price</span> of the scheduled service.</p>
+                            <p>We appreciate your understanding and cooperation.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-                    <a href="work3.jpg" data-lightbox="gallery"><img src="work3.jpg" alt="Hair Style 3" class="img-fluid mb-3"></a>
-                </div>
-                <!-- Add more images as needed -->
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-5">
-        <div class="container">
-            <h2 class="section-title">Contact Us</h2>
-            <div class="row">
-                <div class="col-md-6" data-aos="fade-up">
-                    <h3>Get in Touch</h3>
-                    <p>Address: 123 Salon St, City, State, ZIP</p>
-                    <p>Phone: (123) 456-7890</p>
-                    <p>Email: info@pophairsalon.com</p>
-                </div>
-                <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <h3>Send a Message</h3>
-                    <form>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Name">
-                        </div>
-                        <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Email">
-                        </div>
-                        <div class="form-group">
-                            <textarea class="form-control" rows="5" placeholder="Message"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Send</button>
-                    </form>
-                </div>
+    <!-- Updated Footer -->
+    <footer class="relative bg-primary-dark text-white py-8 overflow-hidden">
+      <div class="container">
+        <div class="row d-flex flex-nowrap justify-content-center footer-row pt-4">
+          <div class="col-md-4 mb-4 mx-2">
+            <h3 class="text-xl font-semibold mb-4">Pop Hair Salon</h3>
+            <p>123 Main Street</p>
+            <p>Chicago, IL 60601</p>
+            <p>Phone: 773.315.7772</p>
+            <p>Email: info@pophairsalon.com</p>
+          </div>
+          <div class="col-md-4 mb-4 mx-2">
+            <h3 class="text-xl font-semibold mb-4">Quick Links</h3>
+            <ul class="list-unstyled">
+              <li>
+                <a href="/" class="hover-text-secondary">Home</a>
+              </li>
+              <li>
+                <a href="#services" class="hover-text-secondary">Services</a>
+              </li>
+              <li>
+                <a href="#products" class="hover-text-secondary">Products</a>
+              </li>
+              <li>
+                <a href="#policy" class="hover-text-secondary">Hours & Policies</a>
+              </li>
+              <li>
+                <a href="https://pophairsalon.salonmonster.com" class="hover-text-secondary" target="_blank">Book Appointment</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4 mb-4 mx-2">
+            <h3 class="text-xl font-semibold mb-4">Find Us</h3>
+            <div class="footer-map-container">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2965.5912001142074!2d-87.67254992342859!3d41.987586058551294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880fd182d43ff845%3A0x93be6636574009e8!2sPop%20Hair%20Salon!5e0!3m2!1sen!2sus!4v1740410151132!5m2!1sen!2sus" width="100%" height="200" style="border:0; border-radius: 8px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
+          </div>
         </div>
-    </section>
-
-    <!-- Map Section -->
-    <section id="map" class="py-5">
-        <div class="container">
-            <h2 class="section-title">Find Us</h2>
-            <iframe src="https://www.google.com/maps/embed?pb=..." width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        <div class="mt-4 text-center">
+          <p>&copy; 2025 Pop Hair Salon - All Rights Reserved</p>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="footer" class="py-3 text-center">
-        <div class="container">
-            <p>© 2023 Pop Hair Salon. All rights reserved.</p>
-            <p>
-                <a href="#">Facebook</a> |
-                <a href="#">Instagram</a> |
-                <a href="#">Twitter</a>
-            </p>
-        </div>
+      </div>
     </footer>
 
     <!-- Scripts -->
@@ -290,20 +305,41 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <script src="public/js/script.js"></script>
+    
+    <!-- Scroll to top button -->
+    <div class="scroll-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    
     <script>
+        // Add scrolled class to navbar on scroll
+        $(window).scroll(function() {
+            if ($(window).scrollTop() > 50) {
+                $('.navbar').addClass('scrolled');
+            } else {
+                $('.navbar').removeClass('scrolled');
+            }
+            
+            // Show/hide scroll to top button
+            if ($(window).scrollTop() > 300) {
+                $('.scroll-top').addClass('visible');
+            } else {
+                $('.scroll-top').removeClass('visible');
+            }
+        });
+        
+        // Scroll to top when button is clicked
+        $('.scroll-top').click(function() {
+            $('html, body').animate({scrollTop: 0}, 800);
+            return false;
+        });
+        
         // Initialize AOS animations
-        AOS.init();
-        // Smooth scrolling for navigation links
-        $(document).ready(function(){
-            var headerHeight = $('header').outerHeight();
-            $('a[href^="#"]').on('click', function(event) {
-                var target = $(this.getAttribute('href'));
-                if( target.length ) {
-                    event.preventDefault();
-                    $('html, body').stop().animate({
-                        scrollTop: target.offset().top - headerHeight
-                    }, 1000);
-                }
+        $(document).ready(function() {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out'
             });
         });
     </script>

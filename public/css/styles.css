@@ -1,0 +1,715 @@
+:root {
+    --black: #000000;
+    --dark-gray: #333333;
+    --medium-gray: #666666;
+    --light-gray: #DDDDDD;
+    --white: #FFFFFF;
+}
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+}
+body {
+    padding-top: 56px; /* Offset for fixed header */
+    font-family: 'Poppins', sans-serif; /* Pop-art inspired, bold font */
+    background-color: white;
+}
+#header {
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(5px);
+    transition: background-color 0.3s;
+    width: 100%;
+}
+.navbar {
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(5px);
+    transition: background-color 0.3s;
+    padding: 0.5rem 1rem;
+}
+.navbar.scrolled {
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.navbar .container-fluid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbar-brand {
+    color: var(--black);
+    font-size: 2rem;
+    font-weight: 800;
+    font-family: 'Open Sans', sans-serif; /* Bold, pop-art font for branding */
+}
+
+/* Logo in header */
+.logo-header {
+    height: 40px;
+    filter: invert(1); /* Invert colors for black background */
+}
+
+/* Hero logo */
+.hero-logo {
+    max-width: 80%; /* Make logo 20% smaller (additional 10%) */
+    margin-bottom: 1.5rem; /* Add margin at bottom */
+}
+
+/* Book Now button styling */
+.book-now-btn {
+    display: flex;
+    align-items: center;
+    background-color: var(--black);
+    color: var(--white);
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.book-now-btn:hover {
+    background-color: var(--dark-gray);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    color: var(--white);
+    text-decoration: none;
+}
+
+.book-now-icon {
+    margin-right: 8px;
+    font-size: 1.1rem;
+}
+
+.book-now-text {
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+}
+/* Hero section with collage */
+#hero {
+    height: 100vh;
+    background-color: white; /* White background */
+    color: black; /* Black text color */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center content */
+    text-align: center;
+    position: relative;
+    overflow: hidden; /* Hide overflow for collage positioning */
+}
+#hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: white; /* Pure white background */
+    z-index: 1;
+}
+/* Ensure the text inside the container stays center-aligned */
+.hero-container {
+    max-width: 60%;
+    text-align: center;
+    position: relative;
+    z-index: 10; /* Higher z-index to ensure text is above images */
+    background-color: transparent;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20%; /* Container sits 20% lower on desktop */
+}
+
+.hero-button {
+    margin-top: 1rem;
+}
+#hero h1 {
+    font-size: 4.5rem; /* Larger, bold pop-art headline */
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 800;
+    font-kerning: auto;
+    /* text-transform: uppercase; */
+    letter-spacing: 2px;
+    color: var(--black);
+}
+#hero p {
+    font-size: 1.8rem; /* Bigger, clean font for subtext */
+    font-family: 'Poppins', sans-serif;
+    color: var(--dark-gray);
+}
+
+/* Collage Styling */
+.hair-collage {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.collage-image {
+    position: absolute;
+    max-height: 80%;
+    max-width: 40%;
+    object-fit: contain;
+    animation: slideIn 1.2s ease forwards;
+}
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-100vw) rotate(0deg);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0) rotate(var(--rotate));
+    }
+}
+
+.collage-image-1 {
+    top: 5%;
+    left: 5%;
+    --rotate: -5deg;
+    transform: rotate(-5deg);
+    z-index: 2;
+    animation-delay: 0.1s;
+}
+
+.collage-image-2 {
+    top: 15%;
+    right: 8%;
+    --rotate: 8deg;
+    transform: rotate(8deg);
+    z-index: 3;
+    animation-delay: 0.3s;
+    animation-name: slideInRight;
+}
+
+@keyframes slideInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100vw) rotate(0deg);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0) rotate(var(--rotate));
+    }
+}
+
+.collage-image-3 {
+    bottom: 10%;
+    left: 15%;
+    --rotate: 3deg;
+    transform: rotate(3deg);
+    z-index: 6;
+    animation-delay: 0.5s;
+}
+
+.collage-image-4 {
+    top: 20%;
+    left: 25%;
+    --rotate: 4deg;
+    transform: rotate(4deg) scale(0.8);
+    z-index: 4;
+    opacity: 0.85;
+    animation-delay: 0.2s;
+}
+
+.collage-image-5 {
+    bottom: 5%;
+    right: 15%;
+    --rotate: -7deg;
+    transform: rotate(-7deg);
+    z-index: 5;
+    animation-delay: 0.7s;
+    animation-name: slideInRight;
+}
+
+.collage-image-6 {
+    bottom: 15%;
+    right: 30%;
+    --rotate: -3deg;
+    transform: rotate(-3deg) scale(0.8);
+    z-index: 3;
+    opacity: 0.85;
+    animation-delay: 0.4s;
+    animation-name: slideInRight;
+}
+.btn-primary {
+    background-color: var(--black);
+    border-color: var(--black);
+    font-size: 1.2rem;
+    padding: 12px 24px;
+    font-family: 'Poppins', sans-serif;
+}
+.btn-primary:hover {
+    background-color: var(--dark-gray);
+    border-color: var(--dark-gray);
+}
+#services-pricing, #biography, #gallery, #contact, #map {
+    background-color: white;
+    color: #333;
+}
+.section-title {
+    font-size: 3rem;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 800;
+    color: var(--black);
+    text-align: center;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    /* Ensure section titles don't animate */
+    opacity: 1 !important;
+    transform: none !important;
+}
+.service-item, .bio-text, .gallery-item, .contact-info, .map-container {
+    font-size: 1.2rem;
+    font-family: 'Poppins', sans-serif;
+}
+#services-pricing .col-md-4 h3 {
+    font-size: 2rem;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 800;
+    color: var(--black);
+}
+/* Bio image styling moved to bio-image class */
+.bio-image-wrapper, .products-image-wrapper {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.bio-image {
+    max-width: 85%;
+    height: auto;
+    margin: 0 auto;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.bio-content {
+    padding: 20px;
+    height: 100%;
+}
+
+/* Products section styling */
+.product-images-overlap {
+    position: relative;
+    height: 400px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-image {
+    position: absolute;
+    width: 70%;
+    max-width: 250px;
+    height: auto;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    transform-origin: bottom center;
+    opacity: 0;
+    animation-duration: 1.2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease;
+}
+
+.product-image-1 {
+    transform: rotate(-25deg) translateX(-40px);
+    z-index: 1;
+    animation-name: fanOut1;
+    animation-delay: 0.2s;
+}
+
+.product-image-2 {
+    transform: rotate(0deg);
+    z-index: 2;
+    animation-name: fanOut2;
+    animation-delay: 0.4s;
+}
+
+.product-image-3 {
+    transform: rotate(25deg) translateX(40px);
+    z-index: 3;
+    animation-name: fanOut3;
+    animation-delay: 0.6s;
+}
+
+@keyframes fanOut1 {
+    0% {
+        transform: rotate(0deg) translateX(0);
+        opacity: 0;
+    }
+    100% {
+        transform: rotate(-25deg) translateX(-40px);
+        opacity: 1;
+    }
+}
+
+@keyframes fanOut2 {
+    0% {
+        transform: rotate(0deg) translateX(0);
+        opacity: 0;
+    }
+    100% {
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+}
+
+@keyframes fanOut3 {
+    0% {
+        transform: rotate(0deg) translateX(0);
+        opacity: 0;
+    }
+    100% {
+        transform: rotate(25deg) translateX(40px);
+        opacity: 1;
+    }
+}
+#biography h2 {
+    font-size: 3rem;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 800;
+    color: var(--black);
+}
+#gallery img {
+    border-radius: 10px;
+}
+
+/* New service card styles */
+.service-card {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Gallery image hover effects */
+.gallery-image {
+    transition: transform 0.3s, opacity 0.3s;
+    border-radius: 10px;
+}
+.gallery-image:hover {
+    transform: scale(1.03);
+    opacity: 0.9;
+}
+
+/* Social media icons */
+.social-icon {
+    font-size: 1.5rem;
+    margin-right: 15px;
+    transition: color 0.3s;
+}
+.social-icon:hover {
+    color: var(--rose-gold);
+}
+
+/* Instagram button hover effect */
+.btn-primary .fab {
+    transition: transform 0.3s;
+}
+.btn-primary:hover .fab {
+    transform: scale(1.2);
+}
+
+/* Subtle pattern for sections */
+.section-with-pattern {
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1IiBoZWlnaHQ9IjUiPgo8cmVjdCB3aWR0aD0iNSIgaGVpZ2h0PSI1IiBmaWxsPSIjZmZmIj48L3JlY3Q+CjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNmMGYwZjAiPjwvcmVjdD4KPC9zdmc+');
+    background-color: white;
+}
+
+/* Hours & Policies Styling */
+.info-card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    padding: 2.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-top: 4px solid var(--black);
+    height: 100%;
+    transition: transform 0.3s;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+}
+
+.info-icon {
+    font-size: 2.5rem;
+    color: var(--black);
+    margin-bottom: 1rem;
+}
+
+.info-title {
+    font-size: 1.8rem;
+    color: var(--black);
+    margin-bottom: 1.5rem;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 800;
+}
+
+.info-content {
+    text-align: left;
+}
+
+.info-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 1rem;
+}
+
+.hours-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.hours-list li {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px dashed #eee;
+    padding: 0.7rem 0;
+    font-size: 1.1rem;
+}
+
+.hours-time {
+    font-weight: bold;
+    color: var(--black);
+}
+
+.highlight {
+    color: var(--black);
+    font-weight: bold;
+    border-bottom: 2px dotted var(--black);
+    padding-bottom: 2px;
+}
+
+@media (max-width: 768px) {
+    .info-card {
+        padding: 2rem 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .info-content p {
+        font-size: 1rem;
+    }
+    
+    .hours-list li {
+        font-size: 1rem;
+    }
+}
+#contact h3, #map h2 {
+    font-size: 2.5rem;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 800;
+    color: var(--black);
+}
+footer {
+    background-color: var(--black);
+    color: var(--white);
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+}
+footer a {
+    color: var(--light-gray);
+}
+footer a:hover {
+    color: var(--white);
+}
+@media (max-width: 768px) {
+    #hero {
+        min-height: 100vh; /* Ensure the hero fills the viewport on mobile */
+        justify-content: center;
+        padding-right: 0;
+    }
+    #hero h1 {
+        font-size: 3rem;
+    }
+    #hero p {
+        font-size: 1.5rem;
+    }
+    .section-title {
+        font-size: 2.5rem;
+    }
+    .navbar-brand {
+        font-size: 1.5rem;
+    }
+    .logo-header {
+        height: 30px; /* Smaller logo on mobile */
+    }
+    .book-now-btn {
+        padding: 8px 12px;
+    }
+    .book-now-text {
+        font-size: 0.9rem;
+    }
+    .book-now-icon {
+        font-size: 0.9rem;
+    }
+    .hero-container {
+        max-width: 90%;
+    }
+    .hero-content {
+        margin-top: 0; /* Remove the vertical offset for mobile */
+    }
+    .hero-logo {
+        max-width: 95%; /* Slightly larger on mobile */
+    }
+    .footer-row {
+        flex-wrap: wrap !important;
+    }
+    .bio-image {
+        max-width: 90%; /* Slightly smaller than container on mobile */
+    }
+    
+    .bio-image-wrapper, .products-image-wrapper {
+        margin-bottom: 20px;
+    }
+    
+    .product-images-overlap {
+        height: 300px; /* Smaller height on mobile */
+    }
+    
+    .product-image {
+        width: 80%; /* Larger images on mobile */
+        max-width: 200px;
+    }
+}
+    
+    /* Collage adjustments for mobile */
+    .collage-image {
+        max-height: 50%;
+        max-width: 50%;
+    }
+    
+    .collage-image-1 {
+        top: 5%;
+        left: 2%;
+    }
+    
+    .collage-image-2 {
+        top: 5%;
+        right: 2%;
+    }
+    
+    .collage-image-3 {
+        bottom: 30%;
+        left: 2%;
+    }
+    
+    .collage-image-4 {
+        top: 25%;
+        left: 25%;
+        transform: rotate(4deg) scale(0.6);
+    }
+    
+    .collage-image-5 {
+        bottom: 30%;
+        right: 2%;
+    }
+    
+    .collage-image-6 {
+        bottom: 5%;
+        right: 25%;
+        transform: rotate(-3deg) scale(0.6);
+    }
+}
+#services-pricing {
+    background-color: white;
+    color: #333;
+    padding: 20px; /* maintain any desired padding */
+}
+/* Add borders to individual service divs with rounded corners */
+#services-pricing .col-md-4 {
+    border: 1px solid #ccc; /* Light border */
+    margin: 4px;
+    border-radius: 10px;     /* Rounded corners */
+    padding: 20px;          /* Internal spacing */
+    margin-bottom: 20px;    /* Spacing between items */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Small drop shadow */
+}
+#services-pricing .row {
+    flex-wrap: nowrap;
+}
+
+/* Hours styling now in info-card section */
+
+/* Improved form styling */
+.contact-form input,
+.contact-form textarea {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 12px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--rose-gold);
+    box-shadow: 0 0 0 3px rgba(183, 110, 121, 0.2);
+    outline: none;
+}
+
+/* Scroll to top button */
+.scroll-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--black);
+    color: var(--white);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    font-size: 1.2rem;
+}
+.scroll-top.visible {
+    opacity: 1;
+}
+.scroll-top:hover {
+    background-color: var(--dark-gray);
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+
+/* Footer map styling */
+.footer-map-container {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    margin-top: 12px;
+}
+
+.text-warning {
+    color: var(--black) !important;
+}
+
+[data-aos] {
+    opacity: 0;
+    transition-property: opacity, transform;
+    transition-duration: 1s;
+}
