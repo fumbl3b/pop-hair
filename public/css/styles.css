@@ -7,8 +7,14 @@
     --baby-blue: #89CFF0;
     --baby-blue-dark: #5DA9D6;
     --baby-blue-light: #B1E0F8;
-    --rose-gold: #B76E79;
-    --rose-gold-dark: #9E5662;
+    --rose-gold: #D06278; /* More saturated rose */
+    --rose-gold-dark: #B74E65; /* More saturated dark rose */
+    
+    /* New default theme colors */
+    --primary: var(--baby-blue);
+    --primary-dark: var(--baby-blue-dark);
+    --accent: var(--rose-gold);
+    --accent-dark: var(--rose-gold-dark);
 }
 html, body {
     width: 100%;
@@ -17,22 +23,41 @@ html, body {
 body {
     padding-top: 56px; /* Offset for fixed header */
     font-family: 'Poppins', sans-serif; /* Pop-art inspired, bold font */
-    background-color: white;
+    position: relative;
+    background-color: var(--baby-blue-light);
+}
+
+/* Background already set above */
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/daisy.png'), url('../images/daisy.png');
+    background-position: 0 0, 250px 250px; /* Create checkerboard effect with offset second layer */
+    background-repeat: repeat, repeat;
+    background-size: 200px 200px, 200px 200px; /* Larger daisies */
+    opacity: 0.07;
+    z-index: -1;
+    filter: brightness(0) saturate(100%) invert(73%) sepia(59%) saturate(409%) hue-rotate(166deg) brightness(96%) contrast(97%); /* Blue daisy pattern */
 }
 #header {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(137, 207, 240, 0.9); /* baby-blue with transparency */
     backdrop-filter: blur(5px);
     transition: background-color 0.3s;
     width: 100%;
 }
 .navbar {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(137, 207, 240, 0.9); /* baby-blue with transparency */
     backdrop-filter: blur(5px);
     transition: background-color 0.3s;
     padding: 0.5rem 1rem;
 }
 .navbar.scrolled {
-    background-color: white;
+    background-color: var(--primary);
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 .navbar .container-fluid {
@@ -63,7 +88,7 @@ body {
 .book-now-btn {
     display: flex;
     align-items: center;
-    background-color: var(--black);
+    background-color: var(--accent);
     color: var(--white);
     padding: 10px 20px;
     border-radius: 30px;
@@ -75,7 +100,7 @@ body {
 }
 
 .book-now-btn:hover {
-    background-color: var(--dark-gray);
+    background-color: var(--accent-dark);
     transform: translateY(-2px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     color: var(--white);
@@ -110,7 +135,7 @@ body {
     left: 0;
     height: 100%;
     width: 100%;
-    background: white; /* Pure white background */
+    background: white; /* Pure white background for hero only */
     z-index: 1;
 }
 /* Ensure the text inside the container stays center-aligned */
@@ -189,7 +214,7 @@ body {
 }
 
 .collage-image-2 {
-    top: 15%;
+    top: 10%;
     right: 8%;
     --rotate: 8deg;
     transform: rotate(8deg);
@@ -210,8 +235,8 @@ body {
 }
 
 .collage-image-3 {
-    bottom: 10%;
-    left: 15%;
+    bottom: 12%;
+    left: 8%;
     --rotate: 3deg;
     transform: rotate(3deg);
     z-index: 6;
@@ -219,8 +244,8 @@ body {
 }
 
 .collage-image-4 {
-    top: 20%;
-    left: 25%;
+    top: 18%;
+    left: 30%;
     --rotate: 4deg;
     transform: rotate(4deg) scale(0.8);
     z-index: 4;
@@ -229,8 +254,8 @@ body {
 }
 
 .collage-image-5 {
-    bottom: 5%;
-    right: 15%;
+    bottom: 8%;
+    right: 8%;
     --rotate: -7deg;
     transform: rotate(-7deg);
     z-index: 5;
@@ -239,8 +264,8 @@ body {
 }
 
 .collage-image-6 {
-    bottom: 15%;
-    right: 30%;
+    bottom: 20%;
+    right: 25%;
     --rotate: -3deg;
     transform: rotate(-3deg) scale(0.8);
     z-index: 3;
@@ -248,26 +273,53 @@ body {
     animation-delay: 0.4s;
     animation-name: slideInRight;
 }
+
+.collage-image-7 {
+    top: 45%;
+    left: 12%;
+    --rotate: 6deg;
+    transform: rotate(6deg) scale(0.75);
+    z-index: 4;
+    animation-delay: 0.6s;
+}
+
+.collage-image-8 {
+    top: 50%;
+    right: 12%;
+    --rotate: -5deg;
+    transform: rotate(-5deg) scale(0.75);
+    z-index: 4;
+    animation-delay: 0.7s;
+    animation-name: slideInRight;
+}
+
+.collage-image-9 {
+    bottom: 5%;
+    left: 35%;
+    --rotate: 4deg;
+    transform: rotate(4deg) scale(0.65);
+    z-index: 3;
+    animation-delay: 0.8s;
+}
 .btn-primary {
-    background-color: var(--black);
-    border-color: var(--black);
+    background-color: var(--accent);
+    border-color: var(--accent);
     font-size: 1.2rem;
     padding: 12px 24px;
     font-family: 'Poppins', sans-serif;
 }
 .btn-primary:hover {
-    background-color: var(--dark-gray);
-    border-color: var(--dark-gray);
+    background-color: var(--accent-dark);
+    border-color: var(--accent-dark);
 }
 #services-pricing, #biography, #gallery, #contact, #map {
-    background-color: white;
     color: #333;
 }
 .section-title {
     font-size: 3rem;
     font-family: 'Open Sans', sans-serif;
     font-weight: 800;
-    color: var(--black);
+    color: var(--primary-dark);
     text-align: center;
     margin-bottom: 2rem;
     text-transform: uppercase;
@@ -283,7 +335,7 @@ body {
     font-size: 2rem;
     font-family: 'Open Sans', sans-serif;
     font-weight: 800;
-    color: var(--black);
+    color: var(--primary-dark);
 }
 /* Bio image styling moved to bio-image class */
 .bio-image-wrapper, .products-image-wrapper {
@@ -307,87 +359,43 @@ body {
 }
 
 /* Products section styling */
-.product-images-overlap {
-    position: relative;
+.kevin-murphy-image {
     height: 400px;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 20px;
 }
 
-.product-image {
-    position: absolute;
-    width: 70%;
-    max-width: 250px;
+.kevin-murphy-img {
+    max-width: 100%;
     height: auto;
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    border-radius: 8px;
-    transform-origin: bottom center;
-    opacity: 0;
-    animation-duration: 1.2s;
-    animation-fill-mode: forwards;
-    animation-timing-function: ease;
+    border-radius: 16px;
+    transition: transform 0.3s ease;
+    animation: fadeIn 1.2s ease forwards;
 }
 
-.product-image-1 {
-    transform: rotate(-25deg) translateX(-40px);
-    z-index: 1;
-    animation-name: fanOut1;
-    animation-delay: 0.2s;
+.kevin-murphy-img:hover {
+    transform: scale(1.03);
 }
 
-.product-image-2 {
-    transform: rotate(0deg);
-    z-index: 2;
-    animation-name: fanOut2;
-    animation-delay: 0.4s;
-}
-
-.product-image-3 {
-    transform: rotate(25deg) translateX(40px);
-    z-index: 3;
-    animation-name: fanOut3;
-    animation-delay: 0.6s;
-}
-
-@keyframes fanOut1 {
+@keyframes fadeIn {
     0% {
-        transform: rotate(0deg) translateX(0);
         opacity: 0;
+        transform: translateY(30px);
     }
     100% {
-        transform: rotate(-25deg) translateX(-40px);
         opacity: 1;
-    }
-}
-
-@keyframes fanOut2 {
-    0% {
-        transform: rotate(0deg) translateX(0);
-        opacity: 0;
-    }
-    100% {
-        transform: rotate(0deg);
-        opacity: 1;
-    }
-}
-
-@keyframes fanOut3 {
-    0% {
-        transform: rotate(0deg) translateX(0);
-        opacity: 0;
-    }
-    100% {
-        transform: rotate(25deg) translateX(40px);
-        opacity: 1;
+        transform: translateY(0);
     }
 }
 #biography h2 {
     font-size: 3rem;
     font-family: 'Open Sans', sans-serif;
     font-weight: 800;
-    color: var(--black);
+    color: var(--primary-dark);
 }
 #gallery img {
     border-radius: 10px;
@@ -432,10 +440,9 @@ body {
     transform: scale(1.2);
 }
 
-/* Subtle pattern for sections */
+/* Subtle pattern for sections (removed background) */
 .section-with-pattern {
-    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1IiBoZWlnaHQ9IjUiPgo8cmVjdCB3aWR0aD0iNSIgaGVpZ2h0PSI1IiBmaWxsPSIjZmZmIj48L3JlY3Q+CjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNmMGYwZjAiPjwvcmVjdD4KPC9zdmc+');
-    background-color: white;
+    /* Background removed to show daisy pattern */
 }
 
 /* Hours & Policies Styling */
@@ -447,7 +454,7 @@ body {
     text-align: center;
     position: relative;
     overflow: hidden;
-    border-top: 4px solid var(--black);
+    border-top: 4px solid var(--primary);
     height: 100%;
     transition: transform 0.3s;
 }
@@ -458,13 +465,13 @@ body {
 
 .info-icon {
     font-size: 2.5rem;
-    color: var(--black);
+    color: var(--primary);
     margin-bottom: 1rem;
 }
 
 .info-title {
     font-size: 1.8rem;
-    color: var(--black);
+    color: var(--primary-dark);
     margin-bottom: 1.5rem;
     font-family: 'Open Sans', sans-serif;
     font-weight: 800;
@@ -497,13 +504,13 @@ body {
 
 .hours-time {
     font-weight: bold;
-    color: var(--black);
+    color: var(--accent);
 }
 
 .highlight {
-    color: var(--black);
+    color: var(--accent);
     font-weight: bold;
-    border-bottom: 2px dotted var(--black);
+    border-bottom: 2px dotted var(--accent);
     padding-bottom: 2px;
 }
 
@@ -525,10 +532,10 @@ body {
     font-size: 2.5rem;
     font-family: 'Open Sans', sans-serif;
     font-weight: 800;
-    color: var(--black);
+    color: var(--primary-dark);
 }
 footer {
-    background-color: var(--black);
+    background-color: var(--primary-dark);
     color: var(--white);
     font-size: 1rem;
     font-family: 'Poppins', sans-serif;
@@ -589,13 +596,12 @@ footer a:hover {
         margin-bottom: 20px;
     }
     
-    .product-images-overlap {
+    .kevin-murphy-image {
         height: 300px; /* Smaller height on mobile */
     }
     
-    .product-image {
-        width: 80%; /* Larger images on mobile */
-        max-width: 200px;
+    .kevin-murphy-img {
+        max-width: 90%; /* Adjust image size for mobile */
     }
 }
     
@@ -636,9 +642,26 @@ footer a:hover {
         right: 25%;
         transform: rotate(-3deg) scale(0.6);
     }
+    
+    .collage-image-7 {
+        top: 45%;
+        left: 10%;
+        transform: rotate(6deg) scale(0.5);
+    }
+    
+    .collage-image-8 {
+        top: 50%;
+        right: 10%;
+        transform: rotate(-5deg) scale(0.5);
+    }
+    
+    .collage-image-9 {
+        bottom: 25%;
+        left: 30%;
+        transform: rotate(4deg) scale(0.45);
+    }
 }
 #services-pricing {
-    background-color: white;
     color: #333;
     padding: 20px; /* maintain any desired padding */
 }
@@ -677,7 +700,7 @@ footer a:hover {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background: var(--black);
+    background: var(--accent);
     color: var(--white);
     width: 50px;
     height: 50px;
@@ -696,7 +719,7 @@ footer a:hover {
     opacity: 1;
 }
 .scroll-top:hover {
-    background-color: var(--dark-gray);
+    background-color: var(--accent-dark);
     transform: translateY(-5px);
     box-shadow: 0 6px 15px rgba(0,0,0,0.3);
 }
@@ -706,7 +729,7 @@ footer a:hover {
     position: fixed;
     bottom: 20px;
     left: 20px;
-    background: var(--black);
+    background: var(--accent);
     color: var(--white);
     width: 50px;
     height: 50px;
@@ -795,6 +818,13 @@ body.baby-blue-mode footer a:hover {
     text-decoration: underline;
 }
 
+/* Change daisy background in baby blue mode */
+body.baby-blue-mode::before {
+    filter: brightness(0) saturate(100%) invert(73%) sepia(59%) saturate(409%) hue-rotate(166deg) brightness(96%) contrast(97%);
+    opacity: 0.08;
+    background-position: 0 0, 225px 225px; /* Slightly different checkerboard for baby blue */
+}
+
 /* Blue background with rose gold accents mode */
 body.rose-gold-mode {
     background-color: var(--baby-blue-light);
@@ -856,9 +886,7 @@ body.rose-gold-mode #hero::before {
     background: var(--baby-blue-light); /* Match the background */
 }
 
-body.rose-gold-mode .section-with-pattern {
-    background-color: var(--baby-blue-light);
-}
+/* Removed section background for rose-gold mode */
 
 /* Fix contrast for text on blue background */
 body.rose-gold-mode p,
@@ -875,6 +903,14 @@ body.rose-gold-mode footer a {
 body.rose-gold-mode footer a:hover {
     color: #eee;
     text-decoration: underline;
+}
+
+/* Change daisy background in rose gold mode */
+body.rose-gold-mode::before {
+    filter: brightness(0) saturate(100%) invert(50%) sepia(15%) saturate(1852%) hue-rotate(314deg) brightness(101%) contrast(87%);
+    opacity: 0.08;
+    background-color: var(--baby-blue-light);
+    background-position: 0 0, 200px 275px; /* Unique checkerboard for rose gold */
 }
 
 /* Footer map styling */
