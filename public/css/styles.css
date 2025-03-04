@@ -384,6 +384,43 @@ body::before {
     opacity: 1 !important;
     transform: none !important;
 }
+
+.product-heading {
+    font-size: 1.5rem;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.product-inline-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    display: block;
+    margin: 0 auto;
+}
+
+.product-inline-img:hover {
+    transform: scale(1.03);
+}
+
+.product-vertical-img {
+    max-width: 70%; 
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    display: block;
+    margin: 0 auto;
+}
+
+.product-vertical-img:hover {
+    transform: scale(1.03);
+}
 .service-item, .bio-text, .gallery-item, .contact-info, .map-container {
     font-size: 1.2rem;
     font-family: 'Poppins', sans-serif;
@@ -630,6 +667,17 @@ body::before {
     .cruelty-free-img {
         width: 120px;
         height: 120px;
+    }
+    
+    .product-inline-img {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        max-width: 80%;
+    }
+    
+    .product-vertical-img {
+        max-width: 90%;
+        margin: 1.5rem auto;
     }
 }
 #contact h3, #map h2 {
