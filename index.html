@@ -213,32 +213,32 @@
                         <div class="info-content">
                             <ul class="hours-list">
                                 <li>
+                                    <span>Sunday</span>
+                                    <span class="hours-time">Closed</span>
+                                </li>
+                                <li>
                                     <span>Monday</span>
-                                    <span class="hours-time">9am - 5pm</span>
+                                    <span class="hours-time">Closed</span>
                                 </li>
                                 <li>
                                     <span>Tuesday</span>
-                                    <span class="hours-time">9am - 5pm</span>
+                                    <span class="hours-time">12pm - 7pm</span>
                                 </li>
                                 <li>
                                     <span>Wednesday</span>
-                                    <span class="hours-time">9am - 5pm</span>
+                                    <span class="hours-time">12pm - 7pm</span>
                                 </li>
                                 <li>
                                     <span>Thursday</span>
-                                    <span class="hours-time">9am - 5pm</span>
+                                    <span class="hours-time">12pm - 7pm</span>
                                 </li>
                                 <li>
                                     <span>Friday</span>
-                                    <span class="hours-time">9am - 5pm</span>
+                                    <span class="hours-time">12pm - 6pm</span>
                                 </li>
                                 <li>
                                     <span>Saturday</span>
-                                    <span class="hours-time">10am - 4pm</span>
-                                </li>
-                                <li>
-                                    <span>Sunday</span>
-                                    <span class="hours-time">Closed</span>
+                                    <span class="hours-time">10am - 6pm</span>
                                 </li>
                             </ul>
                         </div>
@@ -316,9 +316,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
     <script src="public/js/script.js"></script>
     
-    <!-- Buttons hidden -->
-    <!-- Scroll to top button and color toggle button removed -->
-    
     <script>
         // Add scrolled class to navbar on scroll
         $(window).scroll(function() {
@@ -327,39 +324,6 @@
             } else {
                 $('.navbar').removeClass('scrolled');
             }
-            
-            // Show/hide scroll to top button
-            if ($(window).scrollTop() > 300) {
-                $('.scroll-top').addClass('visible');
-            } else {
-                $('.scroll-top').removeClass('visible');
-            }
-        });
-        
-        // Scroll to top when button is clicked
-        $('.scroll-top').click(function() {
-            $('html, body').animate({scrollTop: 0}, 800);
-            return false;
-        });
-        
-        // Color mode toggle - cycles through 3 modes: default, baby-blue, rose-gold
-        $('.color-toggle').click(function() {
-            // Cycle through color modes
-            if (!$('body').hasClass('baby-blue-mode') && !$('body').hasClass('rose-gold-mode')) {
-                // Switch to baby blue mode
-                $('body').addClass('baby-blue-mode');
-                $(this).html('<i class="fas fa-moon"></i>');
-            } else if ($('body').hasClass('baby-blue-mode')) {
-                // Switch to rose gold mode
-                $('body').removeClass('baby-blue-mode');
-                $('body').addClass('rose-gold-mode');
-                $(this).html('<i class="fas fa-palette"></i>');
-            } else {
-                // Back to default
-                $('body').removeClass('rose-gold-mode');
-                $(this).html('<i class="fas fa-tint"></i>');
-            }
-            return false;
         });
         
         // Initialize AOS animations
