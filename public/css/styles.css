@@ -409,7 +409,7 @@ body::before {
 }
 
 .product-vertical-img {
-    max-width: 70%; 
+    max-width: 85%; 
     height: auto;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
@@ -420,6 +420,15 @@ body::before {
 
 .product-vertical-img:hover {
     transform: scale(1.03);
+}
+
+.product-row {
+    padding: 1.5rem 0;
+    transition: background-color 0.3s ease;
+}
+
+.product-row:hover {
+    background-color: rgba(255, 255, 255, 0.7);
 }
 .service-item, .bio-text, .gallery-item, .contact-info, .map-container {
     font-size: 1.2rem;
@@ -678,6 +687,16 @@ body::before {
     .product-vertical-img {
         max-width: 90%;
         margin: 1.5rem auto;
+    }
+    
+    .product-row {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid rgba(137, 207, 240, 0.3);
+    }
+    
+    .product-row:last-child {
+        border-bottom: none;
     }
 }
 #contact h3, #map h2 {
