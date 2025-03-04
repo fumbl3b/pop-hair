@@ -190,119 +190,112 @@ body::before {
 
 .collage-image {
     position: absolute;
-    max-height: 80%;
-    max-width: 40%;
+    max-height: 48%;
+    max-width: 48%;
     object-fit: contain;
-    animation: slideIn 1.2s ease forwards;
+    animation: fadeIn 1.2s ease forwards;
 }
 
-@keyframes slideIn {
+@keyframes fadeIn {
     0% {
         opacity: 0;
-        transform: translateX(-100vw) rotate(0deg);
+        transform: translateY(30px) rotate(0deg) scale(0.8);
     }
     100% {
         opacity: 1;
-        transform: translateX(0) rotate(var(--rotate));
+        transform: translateY(0) rotate(var(--rotate)) scale(var(--scale));
     }
 }
 
+/* Central collage positioning */
 .collage-image-1 {
-    top: 5%;
-    left: 5%;
-    --rotate: -5deg;
-    transform: rotate(-5deg);
-    z-index: 2;
+    top: 12%;
+    left: 25%;
+    --rotate: -8deg;
+    --scale: 1;
+    transform: rotate(-8deg) scale(1);
+    z-index: 3;
     animation-delay: 0.1s;
 }
 
 .collage-image-2 {
-    top: 10%;
-    right: 8%;
-    --rotate: 8deg;
-    transform: rotate(8deg);
-    z-index: 3;
-    animation-delay: 0.3s;
-    animation-name: slideInRight;
-}
-
-@keyframes slideInRight {
-    0% {
-        opacity: 0;
-        transform: translateX(100vw) rotate(0deg);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0) rotate(var(--rotate));
-    }
-}
-
-.collage-image-3 {
-    bottom: 12%;
-    left: 8%;
-    --rotate: 3deg;
-    transform: rotate(3deg);
-    z-index: 6;
-    animation-delay: 0.5s;
-}
-
-.collage-image-4 {
-    top: 18%;
-    left: 30%;
-    --rotate: 4deg;
-    transform: rotate(4deg) scale(0.8);
+    top: 15%;
+    left: 40%;
+    --rotate: 5deg;
+    --scale: 0.98;
+    transform: rotate(5deg) scale(0.98);
     z-index: 4;
-    opacity: 0.85;
     animation-delay: 0.2s;
 }
 
+.collage-image-3 {
+    top: 10%;
+    right: 28%;
+    --rotate: -4deg;
+    --scale: 0.96;
+    transform: rotate(-4deg) scale(0.96);
+    z-index: 2;
+    animation-delay: 0.3s;
+}
+
+.collage-image-4 {
+    top: 32%;
+    left: 20%;
+    --rotate: 7deg;
+    --scale: 0.98;
+    transform: rotate(7deg) scale(0.98);
+    z-index: 3;
+    animation-delay: 0.4s;
+}
+
 .collage-image-5 {
-    bottom: 8%;
-    right: 8%;
-    --rotate: -7deg;
-    transform: rotate(-7deg);
+    top: 35%;
+    left: 45%;
+    --rotate: -6deg;
+    --scale: 1;
+    transform: rotate(-6deg) scale(1);
     z-index: 5;
-    animation-delay: 0.7s;
-    animation-name: slideInRight;
+    animation-delay: 0.5s;
 }
 
 .collage-image-6 {
-    bottom: 20%;
-    right: 25%;
-    --rotate: -3deg;
-    transform: rotate(-3deg) scale(0.8);
-    z-index: 3;
-    opacity: 0.85;
-    animation-delay: 0.4s;
-    animation-name: slideInRight;
-}
-
-.collage-image-7 {
-    top: 45%;
-    left: 12%;
-    --rotate: 6deg;
-    transform: rotate(6deg) scale(0.75);
+    top: 30%;
+    right: 22%;
+    --rotate: 4deg;
+    --scale: 0.96;
+    transform: rotate(4deg) scale(0.96);
     z-index: 4;
     animation-delay: 0.6s;
 }
 
-.collage-image-8 {
-    top: 50%;
-    right: 12%;
-    --rotate: -5deg;
-    transform: rotate(-5deg) scale(0.75);
-    z-index: 4;
+.collage-image-7 {
+    bottom: 18%;
+    left: 25%;
+    --rotate: -7deg;
+    --scale: 0.98;
+    transform: rotate(-7deg) scale(0.98);
+    z-index: 2;
     animation-delay: 0.7s;
-    animation-name: slideInRight;
+}
+
+.collage-image-8 {
+    bottom: 15%;
+    left: 42%;
+    --rotate: 6deg;
+    --scale: 0.97;
+    transform: rotate(6deg) scale(0.97);
+    z-index: 3;
+    animation-delay: 0.8s;
 }
 
 .collage-image-9 {
-    bottom: 5%;
-    left: 35%;
-    --rotate: 4deg;
-    transform: rotate(4deg) scale(0.65);
-    z-index: 3;
-    animation-delay: 0.8s;
+    bottom: 20%;
+    right: 25%;
+    --rotate: -5deg;
+    --scale: 0.98;
+    transform: rotate(-5deg) scale(0.98);
+    z-index: 2;
+    animation-delay: 0.9s;
 }
 .btn-primary {
     background-color: var(--accent);
@@ -667,58 +660,67 @@ footer a:hover {
     
     /* Collage adjustments for mobile */
     .collage-image {
-        max-height: 50%;
-        max-width: 50%;
+        max-height: 45%;
+        max-width: 45%;
     }
     
+    /* Mobile positions - more centered */
     .collage-image-1 {
         top: 5%;
-        left: 2%;
+        left: 20%;
+        transform: rotate(-8deg) scale(0.8);
     }
     
     .collage-image-2 {
-        top: 5%;
-        right: 2%;
+        top: 10%;
+        right: 20%;
+        transform: rotate(5deg) scale(0.78);
     }
     
     .collage-image-3 {
-        bottom: 30%;
-        left: 2%;
+        top: 20%;
+        left: 30%;
+        transform: rotate(-4deg) scale(0.82);
+        z-index: 4;
     }
     
     .collage-image-4 {
-        top: 25%;
-        left: 25%;
-        transform: rotate(4deg) scale(0.6);
+        top: 30%;
+        right: 25%;
+        transform: rotate(7deg) scale(0.8);
+        z-index: 3;
     }
     
     .collage-image-5 {
-        bottom: 30%;
-        right: 2%;
+        top: 45%;
+        left: 22%;
+        transform: rotate(-6deg) scale(0.85);
+        z-index: 5;
     }
     
     .collage-image-6 {
-        bottom: 5%;
+        top: 55%;
         right: 25%;
-        transform: rotate(-3deg) scale(0.6);
+        transform: rotate(4deg) scale(0.78);
     }
     
     .collage-image-7 {
-        top: 45%;
-        left: 10%;
-        transform: rotate(6deg) scale(0.5);
+        bottom: 15%;
+        left: 18%;
+        transform: rotate(-7deg) scale(0.82);
     }
     
     .collage-image-8 {
-        top: 50%;
-        right: 10%;
-        transform: rotate(-5deg) scale(0.5);
+        bottom: 18%;
+        left: 35%;
+        transform: rotate(6deg) scale(0.8);
+        z-index: 3;
     }
     
     .collage-image-9 {
-        bottom: 25%;
-        left: 30%;
-        transform: rotate(4deg) scale(0.45);
+        bottom: 10%;
+        right: 20%;
+        transform: rotate(-5deg) scale(0.82);
     }
 #services-pricing {
     color: #333;
