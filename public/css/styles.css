@@ -27,7 +27,6 @@ body {
     background-color: var(--baby-blue-light);
 }
 
-/* Background already set above */
 
 body::before {
     content: "";
@@ -40,18 +39,18 @@ body::before {
     background-position: 0 0, 250px 250px; /* Create checkerboard effect with offset second layer */
     background-repeat: repeat, repeat;
     background-size: 200px 200px, 200px 200px; /* Larger daisies */
-    opacity: 0.07;
+    opacity: 0.28; /* Further increased opacity for better visibility */
     z-index: -1;
     filter: brightness(0) saturate(100%) invert(73%) sepia(59%) saturate(409%) hue-rotate(166deg) brightness(96%) contrast(97%); /* Blue daisy pattern */
 }
 #header {
-    background-color: rgba(137, 207, 240, 0.9); /* baby-blue with transparency */
+    background-color: rgba(137, 207, 240, 0.9); 
     backdrop-filter: blur(5px);
     transition: background-color 0.3s;
     width: 100%;
 }
 .navbar {
-    background-color: rgba(137, 207, 240, 0.9); /* baby-blue with transparency */
+    background-color: rgba(137, 207, 240, 0.9); 
     backdrop-filter: blur(5px);
     transition: background-color 0.3s;
     padding: 0.5rem 1rem;
@@ -64,27 +63,30 @@ body::before {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: nowrap; /* Prevent wrapping to multiple lines */
 }
 .navbar-brand {
     color: var(--black);
     font-size: 2rem;
     font-weight: 800;
     font-family: 'Open Sans', sans-serif; /* Bold, pop-art font for branding */
+    display: flex; /* Allow logo to maintain aspect ratio */
+    align-items: center;
+    max-width: 70%; /* Ensure logo doesn't push button to next line */
 }
 
 /* Logo in header */
 .logo-header {
     height: 40px;
-    filter: invert(1); /* Invert colors for black background */
+    width: auto; /* Maintain aspect ratio */
+    object-fit: contain; 
 }
 
-/* Hero logo */
 .hero-logo {
-    max-width: 80%; /* Make logo 20% smaller (additional 10%) */
-    margin-bottom: 1.5rem; /* Add margin at bottom */
+    max-width: 80%; 
+    margin-bottom: 1.5rem; 
 }
 
-/* Book Now button styling */
 .book-now-btn {
     display: flex;
     align-items: center;
@@ -97,6 +99,7 @@ body::before {
     text-decoration: none;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
+    white-space: nowrap; /* Prevent wrapping to next line */
 }
 
 .book-now-btn:hover {
@@ -138,7 +141,7 @@ body::before {
     background: white; /* Pure white background for hero only */
     z-index: 1;
 }
-/* Ensure the text inside the container stays center-aligned */
+
 .hero-container {
     max-width: 60%;
     text-align: center;
@@ -312,8 +315,49 @@ body::before {
     background-color: var(--accent-dark);
     border-color: var(--accent-dark);
 }
-#services-pricing, #biography, #gallery, #contact, #map {
+#services-pricing, #gallery, #contact, #map {
     color: #333;
+}
+
+#products, #biography {
+    color: #333;
+    background-color: white;
+    position: relative;
+    overflow: hidden;
+    padding: 60px 0; /* Add padding to create separation */
+    box-shadow: 0 0 20px rgba(0,0,0,0.05); /* Subtle shadow for depth */
+}
+
+/* Remove margin between products and biography */
+#products {
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+
+#biography {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+#products::before, #biography::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/daisy.png'), url('../images/daisy.png');
+    background-position: 0 0, 250px 250px;
+    background-repeat: repeat, repeat;
+    background-size: 200px 200px, 200px 200px;
+    opacity: 0.22; /* Increased opacity to make pattern more visible */
+    z-index: 0;
+    filter: brightness(0) saturate(100%) invert(73%) sepia(59%) saturate(409%) hue-rotate(166deg) brightness(96%) contrast(97%);
+}
+
+#products > .container, #biography > .container {
+    position: relative;
+    z-index: 1;
 }
 .section-title {
     font-size: 3rem;
@@ -337,7 +381,7 @@ body::before {
     font-weight: 800;
     color: var(--primary-dark);
 }
-/* Bio image styling moved to bio-image class */
+
 .bio-image-wrapper, .products-image-wrapper {
     height: 100%;
     display: flex;
@@ -360,21 +404,22 @@ body::before {
 
 /* Products section styling */
 .kevin-murphy-image {
-    height: 400px;
+    height: 100%;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: 0;
 }
 
 .kevin-murphy-img {
-    max-width: 100%;
+    width: 100%;
     height: auto;
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     border-radius: 16px;
     transition: transform 0.3s ease;
     animation: fadeIn 1.2s ease forwards;
+    object-fit: cover; /* Make image fill the space */
 }
 
 .kevin-murphy-img:hover {
@@ -440,9 +485,12 @@ body::before {
     transform: scale(1.2);
 }
 
-/* Subtle pattern for sections (removed background) */
+/* Blue section background for Hours & Policies */
 .section-with-pattern {
-    /* Background removed to show daisy pattern */
+    background-color: var(--baby-blue-light);
+    position: relative;
+    overflow: hidden;
+    padding: 50px 0;
 }
 
 /* Hours & Policies Styling */
@@ -563,18 +611,29 @@ footer a:hover {
     }
     .navbar-brand {
         font-size: 1.5rem;
+        max-width: 65%; /* Allow even more space for button on small screens */
     }
     .logo-header {
         height: 30px; /* Smaller logo on mobile */
+        max-width: none; /* Override max-width for brand image */
+        width: auto; /* Keep proportional width */
     }
     .book-now-btn {
-        padding: 8px 12px;
+        padding: 6px 10px;
+        min-width: auto;
     }
     .book-now-text {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
     }
     .book-now-icon {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
+        margin-right: 4px;
+    }
+    /* Ensure navbar fits on one line on mobile */
+    .navbar-brand {
+        display: flex;
+        align-items: center;
+        min-width: 0; /* Allow shrinking if needed */
     }
     .hero-container {
         max-width: 90%;
@@ -597,11 +656,12 @@ footer a:hover {
     }
     
     .kevin-murphy-image {
-        height: 300px; /* Smaller height on mobile */
+        height: auto; /* Let it adjust based on content */
+        min-height: 250px;
     }
     
     .kevin-murphy-img {
-        max-width: 90%; /* Adjust image size for mobile */
+        width: 100%; /* Full width on mobile */
     }
 }
     
@@ -660,7 +720,6 @@ footer a:hover {
         left: 30%;
         transform: rotate(4deg) scale(0.45);
     }
-}
 #services-pricing {
     color: #333;
     padding: 20px; /* maintain any desired padding */
@@ -695,57 +754,14 @@ footer a:hover {
     outline: none;
 }
 
-/* Scroll to top button */
+/* Scroll to top button - hidden */
 .scroll-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: var(--accent);
-    color: var(--white);
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: all 0.3s ease;
-    z-index: 1000;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    font-size: 1.2rem;
-}
-.scroll-top.visible {
-    opacity: 1;
-}
-.scroll-top:hover {
-    background-color: var(--accent-dark);
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    display: none; /* Hide the scroll to top button */
 }
 
-/* Color mode toggle button */
+/* Color mode toggle button - hidden */
 .color-toggle {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    background: var(--accent);
-    color: var(--white);
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    z-index: 1000;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    font-size: 1.2rem;
-}
-.color-toggle:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    display: none; /* Hide the color toggle button */
 }
 
 /* Baby blue color mode */
