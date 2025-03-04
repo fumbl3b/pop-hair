@@ -190,8 +190,8 @@ body::before {
 
 .collage-image {
     position: absolute;
-    max-height: 62%; /* Increased by ~30% */
-    max-width: 62%; /* Increased by ~30% */
+    max-height: 72%; /* 10% smaller than previous 80% */
+    max-width: 72%; /* 10% smaller than previous 80% */
     object-fit: contain;
     animation: slideInLeft 1.2s ease forwards;
 }
@@ -218,101 +218,101 @@ body::before {
     }
 }
 
-/* Central collage positioning */
+/* Reorganized collage positioning with adjusted z-indexes */
 .collage-image-1 {
-    top: 12%;
-    left: 25%;
+    top: 8%;
+    left: 20%;
     --rotate: -12deg;
     --scale: 1;
     transform: rotate(-12deg) scale(1);
-    z-index: 3;
+    z-index: 5;
     animation-delay: 0.1s;
     animation-name: slideInLeft;
 }
 
 .collage-image-2 {
-    top: 15%;
-    left: 40%;
-    --rotate: 9deg;
-    --scale: 0.98;
-    transform: rotate(9deg) scale(0.98);
-    z-index: 4;
+    top: 12%;
+    left: 48%;
+    --rotate: 8deg;
+    --scale: 0.95;
+    transform: rotate(8deg) scale(0.95);
+    z-index: 7;
     animation-delay: 0.2s;
-    animation-name: slideInLeft;
+    animation-name: slideInRight;
 }
 
 .collage-image-3 {
-    top: 10%;
-    right: 28%;
-    --rotate: -7deg;
-    --scale: 0.96;
-    transform: rotate(-7deg) scale(0.96);
-    z-index: 2;
+    top: 15%;
+    right: 15%;
+    --rotate: -6deg;
+    --scale: 0.98;
+    transform: rotate(-6deg) scale(0.98);
+    z-index: 6;
     animation-delay: 0.3s;
-    animation-name: slideInLeft;
+    animation-name: slideInRight;
 }
 
 .collage-image-4 {
-    top: 32%;
-    left: 20%;
-    --rotate: 11deg;
-    --scale: 0.98;
-    transform: rotate(11deg) scale(0.98);
-    z-index: 3;
+    top: 35%;
+    left: 10%;
+    --rotate: 10deg;
+    --scale: 0.95;
+    transform: rotate(10deg) scale(0.95);
+    z-index: 4;
     animation-delay: 0.4s;
     animation-name: slideInLeft;
 }
 
 .collage-image-5 {
-    top: 35%;
-    left: 45%;
-    --rotate: -10deg;
-    --scale: 1;
-    transform: rotate(-10deg) scale(1);
-    z-index: 5;
+    top: 28%;
+    left: 38%;
+    --rotate: -9deg;
+    --scale: 1.05;
+    transform: rotate(-9deg) scale(1.05);
+    z-index: 9;
     animation-delay: 0.5s;
-    animation-name: slideInRight;
+    animation-name: slideInLeft;
 }
 
 .collage-image-6 {
-    top: 30%;
-    right: 22%;
-    --rotate: 8deg;
-    --scale: 0.96;
-    transform: rotate(8deg) scale(0.96);
-    z-index: 4;
+    top: 40%;
+    right: 18%;
+    --rotate: 7deg;
+    --scale: 0.97;
+    transform: rotate(7deg) scale(0.97);
+    z-index: 3;
     animation-delay: 0.6s;
     animation-name: slideInRight;
 }
 
 .collage-image-7 {
-    bottom: 18%;
-    left: 25%;
-    --rotate: -11deg;
-    --scale: 0.98;
-    transform: rotate(-11deg) scale(0.98);
-    z-index: 2;
+    bottom: 20%;
+    left: 15%;
+    --rotate: -10deg;
+    --scale: 0.96;
+    transform: rotate(-10deg) scale(0.96);
+    z-index: 4;
     animation-delay: 0.7s;
     animation-name: slideInLeft;
 }
 
 .collage-image-8 {
-    bottom: 15%;
-    left: 42%;
-    --rotate: 10deg;
-    --scale: 0.97;
-    transform: rotate(10deg) scale(0.97);
-    z-index: 3;
+    bottom: 12%;
+    left: 45%;
+    --rotate: 9deg;
+    --scale: 0.98;
+    transform: rotate(9deg) scale(0.50);
+    z-index: 8;
     animation-delay: 0.8s;
     animation-name: slideInRight;
 }
 
 .collage-image-9 {
-    bottom: 20%;
-    right: 25%;
-    --rotate: -9deg;
-    --scale: 0.98;
-    transform: rotate(-9deg) scale(0.98);
+    bottom: 16%;
+    right: 12%;
+    --rotate: -8deg;
+    --scale: 0.94;
+    transform: rotate(-8deg) scale(0.94);
     z-index: 2;
     animation-delay: 0.9s;
     animation-name: slideInRight;
@@ -723,71 +723,71 @@ footer a:hover {
     
     /* Collage adjustments for mobile */
     .collage-image {
-        max-height: 48%;
-        max-width: 48%;
+        max-height: 54%;
+        max-width: 54%;
     }
     
-    /* Mobile positions - more spread out and allow some to be cut off at edges */
+    /* Mobile positions - reorganized with new z-index values */
     .collage-image-1 {
-        top: 15%; /* Moved down as requested */
-        left: 0%;
-        transform: rotate(-12deg) scale(0.85);
-        z-index: 6; /* Higher z-index for cut images */
+        top: 10%;
+        left: 15%;
+        transform: rotate(-10deg) scale(0.95);
+        z-index: 5;
     }
     
     .collage-image-2 {
-        top: 12%; /* Moved down as requested */
-        left: 30%;
-        transform: rotate(9deg) scale(0.83);
-        z-index: 6; /* Higher z-index for cut images */
+        top: 8%;
+        right: 15%;
+        transform: rotate(8deg) scale(0.9);
+        z-index: 7;
     }
     
     .collage-image-3 {
-        top: 15%; /* Moved down as requested */
-        right: 5%;
-        transform: rotate(-7deg) scale(0.87);
-        z-index: 6; /* Higher z-index for cut images */
+        top: 22%;
+        left: 30%;
+        transform: rotate(-6deg) scale(0.95);
+        z-index: 6;
     }
     
     .collage-image-4 {
-        top: 32%;
-        left: 0%;
-        transform: rotate(11deg) scale(0.78);
-        z-index: 3;
+        top: 38%;
+        left: 8%;
+        transform: rotate(9deg) scale(0.9);
+        z-index: 4;
     }
     
     .collage-image-5 {
-        top: 35%;
-        right: -5%;
-        transform: rotate(-10deg) scale(0.76);
-        z-index: 3;
+        top: 38%;
+        right: 8%;
+        transform: rotate(-8deg) scale(0.95);
+        z-index: 9;
     }
     
     .collage-image-6 {
-        top: 50%;
+        top: 55%;
         left: 30%;
-        transform: rotate(8deg) scale(0.8);
-        z-index: 2;
-    }
-    
-    .collage-image-7 {
-        bottom: 10%;
-        left: 10%;
-        transform: rotate(-11deg) scale(0.82);
-        z-index: 2;
-    }
-    
-    .collage-image-8 {
-        bottom: 15%;
-        left: 30%;
-        transform: rotate(10deg) scale(0.8);
+        transform: rotate(7deg) scale(0.92);
         z-index: 3;
     }
     
-    .collage-image-9 {
+    .collage-image-7 {
+        bottom: 18%;
+        left: 12%;
+        transform: rotate(-9deg) scale(0.9);
+        z-index: 4;
+    }
+    
+    .collage-image-8 {
         bottom: 10%;
-        right: -5%;
-        transform: rotate(-9deg) scale(0.82);
+        left: 38%;
+        transform: rotate(9deg) scale(0.94);
+        z-index: 8;
+    }
+    
+    .collage-image-9 {
+        bottom: 15%;
+        right: 12%;
+        transform: rotate(-7deg) scale(0.9);
         z-index: 2;
     }
 #services-pricing {
