@@ -20,12 +20,39 @@
 <body>
     <!-- Header with Navigation -->
     <header id="header" class="fixed-top">
-        <nav class="navbar navbar-light">
+        <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
                     <img src="public/images/pophairlogo.png" alt="Pop Hair Salon" class="logo-header">
                 </a>
-                <a href="https://pophairsalon.salonmonster.com" class="book-now-btn" target="_blank">
+                
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#services">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#products">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#biography">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#policy">Hours & Policies</a>
+                        </li>
+                        <li class="nav-item book-now-mobile d-lg-none">
+                            <a class="nav-link" href="https://pophairsalon.salonmonster.com" target="_blank">
+                                <i class="fas fa-calendar-check mr-1"></i> Book Now
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <a href="https://pophairsalon.salonmonster.com" class="book-now-btn d-none d-lg-flex" target="_blank">
                     <span class="book-now-icon"><i class="fas fa-calendar-check"></i></span>
                     <span class="book-now-text">Book Now</span>
                 </a>
@@ -37,16 +64,27 @@
     <section id="hero" class="d-flex align-items-center justify-content-center text-center">
         <!-- Hair Image Collage -->
         <div class="hair-collage">
-            <!-- New images for the collage -->
-            <img src="public/images/new/new1.png" alt="Hair Style" class="collage-image collage-image-1">
-            <img src="public/images/new/new2.png" alt="Hair Style" class="collage-image collage-image-2">
-            <img src="public/images/new/new3.png" alt="Hair Style" class="collage-image collage-image-3">
-            <img src="public/images/new/new4.png" alt="Hair Style" class="collage-image collage-image-4">
-            <img src="public/images/new/new5.png" alt="Hair Style" class="collage-image collage-image-5">
-            <img src="public/images/new/new6.png" alt="Hair Style" class="collage-image collage-image-6">
-            <img src="public/images/new/new7.png" alt="Hair Style" class="collage-image collage-image-7">
-            <img src="public/images/new/new9.png" alt="Hair Style" class="collage-image collage-image-8">
-            <img src="public/images/new/new8.png" alt="Hair Style" class="collage-image collage-image-9">
+            <!-- Polaroid-style images for the collage -->
+            <div class="polaroid-frame polaroid-1">
+                <div class="polaroid-inner">
+                    <img src="public/images/new/new1.png" alt="Hair Style" class="polaroid-image">
+                </div>
+            </div>
+            <div class="polaroid-frame polaroid-2">
+                <div class="polaroid-inner">
+                    <img src="public/images/new/new2.png" alt="Hair Style" class="polaroid-image">
+                </div>
+            </div>
+            <div class="polaroid-frame polaroid-3">
+                <div class="polaroid-inner">
+                    <img src="public/images/new/new3.png" alt="Hair Style" class="polaroid-image">
+                </div>
+            </div>
+            <div class="polaroid-frame polaroid-4">
+                <div class="polaroid-inner">
+                    <img src="public/images/new/new4.png" alt="Hair Style" class="polaroid-image">
+                </div>
+            </div>
         </div>
         <div class="container hero-container">
             <div class="hero-content">
@@ -360,6 +398,41 @@
             AOS.init({
                 duration: 800,
                 easing: 'ease-in-out'
+            });
+            
+            // Smooth scrolling for all anchor links
+            $('a[href^="#"]').on('click', function(e) {
+                e.preventDefault();
+                
+                var target = this.hash;
+                var $target = $(target);
+                
+                $('html, body').animate({
+                    'scrollTop': $target.offset().top - 75 // Adjust for fixed header
+                }, 800, 'swing', function() {
+                    window.location.hash = target;
+                });
+                
+                // Close mobile nav if open
+                $('.navbar-collapse').collapse('hide');
+            });
+        });
+        
+        // Add active class to nav items on scroll
+        $(window).on('scroll', function() {
+            var scrollPosition = $(window).scrollTop() + 100;
+            
+            // Check the position of each section
+            $('section').each(function() {
+                var target = $(this).attr('id');
+                var offset = $(this).offset().top;
+                var height = $(this).outerHeight();
+                
+                if (scrollPosition >= offset && scrollPosition < offset + height) {
+                    $('.navbar-nav a[href="#' + target + '"]').addClass('active');
+                } else {
+                    $('.navbar-nav a[href="#' + target + '"]').removeClass('active');
+                }
             });
         });
     </script>
